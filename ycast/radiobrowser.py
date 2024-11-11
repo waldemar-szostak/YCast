@@ -12,7 +12,7 @@ MINIMUM_COUNT_LANGUAGE = 5
 DEFAULT_STATION_LIMIT = 200
 SHOW_BROKEN_STATIONS = False
 ID_PREFIX = "RB"
-
+SELECTED_COUNTRIES = ['GB', 'DE', 'PL', 'US', 'UA', 'AT', 'SE']
 
 def get_json_attr(json, attr):
     try:
@@ -84,7 +84,9 @@ def get_country_directories():
         apicall += '?hidebroken=true'
     countries_raw = request(apicall)
     for country_raw in countries_raw:
-        if get_json_attr(country_raw, 'name') and get_json_attr(country_raw, 'stationcount') and \
+        country_code = get_json_attr(country_raw, 'iso_3166_1')
+        if country_code in SELECTED_COUNTRIES and \
+                get_json_attr(country_raw, 'name') and get_json_attr(country_raw, 'stationcount') and \
                 int(get_json_attr(country_raw, 'stationcount')) > MINIMUM_COUNT_COUNTRY:
             country_directories.append(generic.Directory(get_json_attr(country_raw, 'name'),
                                                          get_json_attr(country_raw, 'stationcount')))
