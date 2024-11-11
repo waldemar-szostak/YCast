@@ -1,9 +1,17 @@
 Polska:
   RAM: http://stream4.nadaje.com:9220/ram
-  Wrocław: https://stream4.nadaje.com:9241/prw
+  Wrocław: http://stream4.nadaje.com:9240/prw
   RMF: http://195.150.20.242:8000/rmf_fm
   RMF MAXXX: https://rs9-krk2-cyfronet.rmfstream.pl/RMFMAXXX48
   Radio ZET: http://zet-net-01.cdn.eurozet.pl:8400/
+  OPEN.FM - 90s Hits: http://stream.open.fm/14
 
 Klasyczne:
   RMF Classic: http://rmfstream1.interia.pl:8000/rmf_classic
+  RMF Muzyka_Filmowa: http://www.miastomuzyki.pl/n/rmffilmowa.pls
+  Radio Złote Przeboje Wrocław: https://radiostream.pl/tuba9-1.mp3
+
+Chillout:
+  OpenFM - Chillout: url="http://stream.open.fm/33
+  RMF Chillout: http://www.rmfon.pl/n/chillout.pls
+  test: https://www.youtube.com/watch?v=lyOhaokAPIo
