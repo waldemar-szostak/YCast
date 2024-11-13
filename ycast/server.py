@@ -55,7 +55,7 @@ def get_directories_page(subdir, directories, request):
     return page
 
 
-def get_stations_page(stations, page, request):
+def add_stations_to_page(stations, page, request):
     page = vtuner.Page()
     if len(stations) == 0:
         page.add(vtuner.Display("No stations found"))
@@ -73,7 +73,7 @@ def get_stations_page(stations, page, request):
 
 def get_stations_page(stations, request):
     page = vtuner.Page()
-    return get_stations_page(stations, page, request)
+    return add_stations_to_page(stations, page, request)
 
 
 def get_paged_elements(items, requestargs):
@@ -153,7 +153,7 @@ def landing(path=''):
     page.add(vtuner.Directory('Wg krajów >>', url_for('radiobrowser_countries', _external=True),
                               len(radiobrowser.get_country_directories())))
     if my_stations_enabled:
-        page.addAll(get_stations_page(my_stations.get_stations(), page, request))
+        page.addAll(add_stations_to_page(my_stations.get_stations(), page, request))
     else:
         page.add(vtuner.Display("'stations.yml' was not found or configured"))
         page.set_count(1)
