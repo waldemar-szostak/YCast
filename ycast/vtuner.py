@@ -32,6 +32,9 @@ class Page:
     def add(self, item):
         self.items.append(item)
 
+    def addAll(self, items):
+        self.items.extend(items)
+    
     def set_count(self, count):
         self.count = count
 
