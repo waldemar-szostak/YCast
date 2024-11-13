@@ -54,6 +54,7 @@ def get_directories_page(subdir, directories, request):
     page.set_count(len(directories))
     return page
 
+
 def get_stations_page(stations, page, request):
     page = vtuner.Page()
     if len(stations) == 0:
@@ -69,9 +70,11 @@ def get_stations_page(stations, page, request):
     page.set_count(len(stations))
     return page
 
+
 def get_stations_page(stations, request):
     page = vtuner.Page()
     return get_stations_page(stations, page, request)
+
 
 def get_paged_elements(items, requestargs):
     if requestargs.get('startitems'):
