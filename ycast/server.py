@@ -144,14 +144,14 @@ def upstream(path):
            defaults={'path': ''},
            methods=['GET', 'POST'])
 def landing(path=''):
-    page = vtuner.Page()
+    if my_stations_enabled:
+        page = get_stations_page(my_stations.get_stations(), request)
+    else:
+        page = vtuner.Page()
+
     page.add(vtuner.Directory('Wg krajów >>', url_for('radiobrowser_countries', _external=True),
                               len(radiobrowser.get_country_directories())))
-    if my_stations_enabled:
-        add_stations_to_page(my_stations.get_stations(), page, request)
-    else:
-        page.add(vtuner.Display("'stations.yml' was not found or configured"))
-        page.set_count(1)
+
     return page.to_string()
 
 
