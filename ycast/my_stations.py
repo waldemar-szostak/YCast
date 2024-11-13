@@ -75,6 +75,16 @@ def get_stations_by_category(category):
             stations.append(Station(station_id, station_name, station_url, category))
     return stations
 
+def get_stations():
+    my_stations_yaml = get_stations_yaml()
+    stations = []
+    if my_stations_yaml:
+        for category in my_stations_yaml:
+            for station_name in my_stations_yaml[category]:
+                station_url = my_stations_yaml[category][station_name]
+                station_id = str(get_checksum(station_name + station_url)).upper()
+                stations.append(Station(station_id, station_name, station_url, category))
+    return stations
 
 def get_checksum(feed, charlimit=12):
     hash_feed = feed.encode()
